@@ -1,0 +1,8 @@
+node_modules/
+vendor/
+wp-content/uploads/
+wp-config.php
+*.log
+.DS_Store
+*.pem
+*.key
