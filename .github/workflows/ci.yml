@@ -1,0 +1,23 @@
+name: WordPress Theme CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Theme Structure
+        run: |
+          test -f theme/manish-enterprise/style.css
+          test -f theme/manish-enterprise/functions.php
+          test -f theme/manish-enterprise/index.php
+          echo "WordPress theme structure verified."
+
+      - name: Validate Docker Compose
+        run: docker compose config
